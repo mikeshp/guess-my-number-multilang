@@ -1,4 +1,4 @@
-## Makefile for "guess_my_number" all language versions
+## Makefile for "Guess My Number" all languages menu
 
 LANGS   = lang_c lang_pascal
 SELECT ?= $(shell bash -c 'echo -e \
