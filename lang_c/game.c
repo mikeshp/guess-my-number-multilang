@@ -5,32 +5,32 @@
 
 #include "game.h"
 
-void playTheGame(void)
+void play_the_game(void)
 {
 	const int INPUT_SIZE = 8;
 
-	bool playAgain = true;
-	int  secretNumber;
-	char userInput[INPUT_SIZE];
-	int  userGuess;
+	bool play_again = true;
+	int  secret_number;
+	char user_input[INPUT_SIZE];
+	int  user_guess;
 
-	while (playAgain)
+	while (play_again)
 	{
-		secretNumber = (rand()%10) + 1;
+		secret_number = (rand()%10) + 1;
 
-		while (userGuess != secretNumber)
+		while (user_guess != secret_number)
 		{
-			printf("DEBUG: secret number = %d\n",secretNumber);
+			printf("DEBUG: secret number = %d\n",secret_number);
 			printf(">  Enter your guess: ");
-			fgets(userInput,INPUT_SIZE,stdin);
+			fgets(user_input,INPUT_SIZE,stdin);
 
-			userGuess = atoi(userInput);
+			user_guess = atoi(user_input);
 
-			if (userGuess > secretNumber)
+			if (user_guess > secret_number)
 			{
 				printf("Too high!\n");
 			}
-			if (userGuess < secretNumber)
+			if (user_guess < secret_number)
 			{
 				printf("Too low!\n");
 			}
@@ -39,15 +39,15 @@ void playTheGame(void)
 		printf("You win!\n");
 
 		printf(">  Want to play again? (Y/n) ");
-		fgets(userInput,INPUT_SIZE,stdin);
+		fgets(user_input,INPUT_SIZE,stdin);
 
-		switch (toupper(userInput[0]))
+		switch (toupper(user_input[0]))
 		{
 			case 'Y':
-				playAgain = true;
+				play_again = true;
 				break;
 			default:
-				playAgain = false;
+				play_again = false;
 		}
 	}
 }

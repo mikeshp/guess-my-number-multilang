@@ -1,7 +1,7 @@
 #ifndef GAME
 #define GAME
 
-void playTheGame(void);
-//void quitTheGame(void);
+void play_the_game(void);
+//void quit_the_game(void);
 
 #endif

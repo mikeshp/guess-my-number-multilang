@@ -8,9 +8,9 @@ int main(void)
 {
 	srand((unsigned int)time(NULL));
 
-//	displaySwitchBuffer();
-	playTheGame();
-//	displayRestoreBuffer();
+//	display_switch();
+	play_the_game();
+//	display_return();
 
 	return 0;
 }
