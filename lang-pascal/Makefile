@@ -1,8 +1,8 @@
-## Makefile for "guess_my_number" version Free Pascal
+## Makefile for "Guess My Number" language version: Free Pascal
 
 CC   = fpc
 FLGS = -vwnh -vm11030,11031 -Seh -Co -Cr -Mobjfpc
-NAME = guess_my_number_fpc
+NAME = guess-my-number-fpc
 MAIN = main.pas
 SRCS = maintui.pas game.pas variables.pas
 
