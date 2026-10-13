@@ -1,4 +1,4 @@
-## Makefile for "Guess My Number" version Free Pascal
+## Makefile for "Guess My Number" language version: Free Pascal
 
 CC   = fpc
 FLGS = -vwnh -vm11030,11031 -Seh -Co -Cr -Mobjfpc

@@ -1,6 +1,6 @@
-## Makefile for "Guess My Number" all languages menu
+## Makefile for "Guess My Number" all language versions
 
-LANGS   = lang_c lang_pascal
+LANGS   = lang-c lang-pascal
 SELECT ?= $(shell bash -c 'echo -e \
 		"Game variants (language implementation): \n \
 		\t 1 - C           \n \
@@ -20,12 +20,12 @@ all:
 	make $(SELECT)
 
 .PHONY: c
-c: lang_c
-	make -C lang_c run
+c: lang-c
+	make -C lang-c run
 
 .PHONY: pascal
-pascal: lang_pascal
-	make -C lang_pascal run
+pascal: lang-pascal
+	make -C lang-pascal run
 
 .PHONY: error
 error: exit

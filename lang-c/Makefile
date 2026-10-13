@@ -1,4 +1,4 @@
-## Makefile for "Guess My Number" version C
+## Makefile for "Guess My Number" language version: C
 
 CC   = gcc
 FLGS = -Wextra -Wall -Wconversion -Werror -Wstrict-prototypes
