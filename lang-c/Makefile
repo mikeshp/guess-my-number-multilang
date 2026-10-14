@@ -3,14 +3,15 @@
 CC   = gcc
 FLGS = -Wextra -Wall -Wconversion -Werror -Wstrict-prototypes
 NAME = guess-my-number-gcc
-SRCS = game.c main.c
-HDRS = game.h
+MAIN = main.c
+SRCS = game.c variables.c
+HDRS = game.h variables.h
 
 .PHONY: all
 all: $(NAME)
 
-$(NAME): $(SRCS) $(HDRS)
-	$(CC) $(FLGS) $(SRCS) -o $(NAME)
+$(NAME): $(MAIN) $(SRCS) $(HDRS)
+	$(CC) $(FLGS) $(MAIN) $(SRCS) -o $(NAME)
 
 .PHONY: run
 run: $(NAME)

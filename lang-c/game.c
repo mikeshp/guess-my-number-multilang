@@ -3,40 +3,31 @@
 #include <stdio.h>
 #include <ctype.h>
 
+#include "variables.h"
 #include "game.h"
 
 void play_the_game(void)
 {
-	const int INPUT_SIZE = 8;
-
-	bool play_again = true;
-	int  secret_number;
+//	const int INPUT_SIZE = 8;
 	char user_input[INPUT_SIZE];
-	int  user_guess;
+	bool play_again = true;
+	bool user_wins;
 
 	while (play_again)
 	{
-		secret_number = (rand()%10) + 1;
+		int secret_number = (rand()%10) + 1;
 
-		while (user_guess != secret_number)
+		user_wins = try_to_guess(secret_number);
+
+		if (user_wins)
 		{
-			printf("DEBUG: secret number = %d\n",secret_number);
-			printf(">  Enter your guess: ");
-			fgets(user_input,INPUT_SIZE,stdin);
-
-			user_guess = atoi(user_input);
-
-			if (user_guess > secret_number)
-			{
-				printf("Too high!\n");
-			}
-			if (user_guess < secret_number)
-			{
-				printf("Too low!\n");
-			}
+			/* Player wins */
+			printf("You win!\n");
 		}
-
-		printf("You win!\n");
+		else
+		{
+			/* Player lost */
+		}
 
 		printf(">  Want to play again? (Y/n) ");
 		fgets(user_input,INPUT_SIZE,stdin);
@@ -52,6 +43,31 @@ void play_the_game(void)
 	}
 }
 
+bool try_to_guess(int secret_number)
+{
+	char user_input[INPUT_SIZE];
+	int  user_guess = 0;
+
+	while (user_guess != secret_number)
+	{
+		printf("DEBUG: secret number = %d\n",secret_number);
+		printf(">  Enter your guess: ");
+		fgets(user_input,INPUT_SIZE,stdin);
+
+		user_guess = atoi(user_input);
+
+		if (user_guess > secret_number)
+		{
+			printf("Too high!\n");
+		}
+		if (user_guess < secret_number)
+		{
+			printf("Too low!\n");
+		}
+	}
+
+	return true;
+}
 
 
 
