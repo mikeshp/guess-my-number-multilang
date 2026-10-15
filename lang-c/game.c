@@ -8,7 +8,6 @@
 
 void play_the_game(void)
 {
-//	const int INPUT_SIZE = 8;
 	char user_input[INPUT_SIZE];
 	bool play_again = true;
 	bool user_wins;
@@ -27,6 +26,7 @@ void play_the_game(void)
 		else
 		{
 			/* Player lost */
+			printf("You lost!\n");
 		}
 
 		printf(">  Want to play again? (Y/n) ");
@@ -47,28 +47,45 @@ bool try_to_guess(int secret_number)
 {
 	char user_input[INPUT_SIZE];
 	int  user_guess = 0;
+	int  tries_left = MAX_TRIES;
 
-	while (user_guess != secret_number)
+	while (tries_left)
 	{
 		printf("DEBUG: secret number = %d\n",secret_number);
+		printf("DEBUG: attempts left = %d\n",tries_left);
 		printf(">  Enter your guess: ");
 		fgets(user_input,INPUT_SIZE,stdin);
 
 		user_guess = atoi(user_input);
 
-		if (user_guess > secret_number)
+		if (user_guess == secret_number)
+		{
+			return true;
+		}
+		else
+		{
+			tries_left--;
+			bad_guess(user_guess>secret_number,tries_left);
+		}
+	}
+
+	return false;
+}
+
+void bad_guess(bool guess_higher, int tries_left)
+{
+	if (tries_left)
+	{
+		if (guess_higher)
 		{
 			printf("Too high!\n");
 		}
-		if (user_guess < secret_number)
+		else
 		{
 			printf("Too low!\n");
 		}
 	}
-
-	return true;
 }
-
 
 
 
